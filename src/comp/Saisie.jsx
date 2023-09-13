@@ -8,7 +8,7 @@ function Saisie() {
     const [dureeMax, setDureeMax] = useState(60)
     const [constructif, setConstructif] = useState(5)
 
-    function gererResultat() {
+    useEffect(() => {
         // refresh calcul de la proposition
         //1. récupérer valeurs
 
@@ -21,21 +21,18 @@ function Saisie() {
             </li>
         );
         setResultat(listLignes);
-    }
+    }, [dureeMin, dureeMax,constructif ])
     
     function gererDureeMin(e) {
         setDureeMin(e.target.value)
-        gererResultat()
     }
     
     function gererConstructif(e) {
         setConstructif(e.target.value)
-        gererResultat()
     }
     
     function gererDureeMax(e) {
         setDureeMax(e.target.value)
-        gererResultat()
     }
     
     return (
