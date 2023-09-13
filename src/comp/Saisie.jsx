@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react'
 function Saisie() {
     const [resultat, setResultat] = useState("???")
     const [dureeMin, setDureeMin] = useState(5)
-    const [dureeMax, setDureeMax] = useState(5)
+    const [dureeMax, setDureeMax] = useState(60)
+    const [constructif, setConstructif] = useState(5)
 
     function gererResultat() {
         // refresh calcul de la proposition
@@ -24,6 +25,11 @@ function Saisie() {
     
     function gererDureeMin(e) {
         setDureeMin(e.target.value)
+        gererResultat()
+    }
+    
+    function gererConstructif(e) {
+        setConstructif(e.target.value)
         gererResultat()
     }
     
@@ -59,6 +65,19 @@ function Saisie() {
                         pattern="[+-]?\d+(?:[.,]\d+)?"
                         onChange={gererDureeMax}
                         value={dureeMax}
+                        />
+                    </span>
+                </div>
+                <div style={{ padding: '5px 15px 5px 15px' }}>
+                    <span>
+                    constructif :
+                        <input
+                        type="text"
+                        id="constructif"
+                        maxLength={2}
+                        pattern="[+-]?\d+(?:[.,]\d+)?"
+                        onChange={gererConstructif}
+                        value={constructif}
                         />
                     </span>
                 </div>
