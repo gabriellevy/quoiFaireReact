@@ -4,9 +4,12 @@ import { useState, useEffect } from 'react'
 
 function Saisie() {
     const [resultat, setResultat] = useState("???")
-    const [dureeMin, setDureeMin] = useState(5)
-    const [dureeMax, setDureeMax] = useState(60)
+    const [duree, setDuree] = useState(30)
     const [constructif, setConstructif] = useState(5)
+    const [defoulement, setDefoulement] = useState(5)
+    const [relaxation, setRelaxation] = useState(5)
+    const [energiePhysique, setEnergiePhysique] = useState(5)
+    const [energieMentale, setEnergieMentale] = useState(5)
 
     useEffect(() => {
         // refresh calcul de la proposition
@@ -15,24 +18,36 @@ function Saisie() {
         //2. comparer avec donnes de lstActivites
 
         //3. mettre els 3 premiers dans une chaine de caractère et afficher
-        let lignes = [ 'durée min : ' + dureeMin, "durée max : " + dureeMax]
+        let lignes = [ 'durée : ' + duree]
         const listLignes = lignes.map((ligne) =>
             <li key={ligne.toString()}>      {ligne}
             </li>
         );
         setResultat(listLignes);
-    }, [dureeMin, dureeMax,constructif ])
+    }, [duree, constructif ])
     
-    function gererDureeMin(e) {
-        setDureeMin(e.target.value)
+    function gererDuree(e) {
+        setDuree(e.target.value)
     }
     
     function gererConstructif(e) {
         setConstructif(e.target.value)
     }
     
-    function gererDureeMax(e) {
-        setDureeMax(e.target.value)
+    function gererDefoulement(e) {
+        setDefoulement(e.target.value)
+    }
+    
+    function gererRelaxation(e) {
+        setRelaxation(e.target.value)
+    }
+    
+    function gererEnergiePhysique(e) {
+        setEnergiePhysique(e.target.value)
+    }
+    
+    function gererEnergieMentale(e) {
+        setEnergieMentale(e.target.value)
     }
     
     return (
@@ -41,27 +56,14 @@ function Saisie() {
             <form>
                 <div style={{ padding: '5px 15px 5px 15px' }}>
                     <span>
-                        Durée min :
+                        Temps dispo (min) :
                         <input
                         type="text"
                         id="dureeMin"
                         maxLength={3}
                         pattern="[+-]?\d+(?:[.,]\d+)?"
-                        onChange={gererDureeMin}
-                        value={dureeMin}
-                        />
-                    </span>
-                </div>
-                <div style={{ padding: '5px 15px 5px 15px' }}>
-                    <span>
-                        Durée max :
-                        <input
-                        type="text"
-                        id="dureeMax"
-                        maxLength={3}
-                        pattern="[+-]?\d+(?:[.,]\d+)?"
-                        onChange={gererDureeMax}
-                        value={dureeMax}
+                        onChange={gererDuree}
+                        value={duree}
                         />
                     </span>
                 </div>
@@ -75,6 +77,58 @@ function Saisie() {
                         pattern="[+-]?\d+(?:[.,]\d+)?"
                         onChange={gererConstructif}
                         value={constructif}
+                        />
+                    </span>
+                </div>
+                <div style={{ padding: '5px 15px 5px 15px' }}>
+                    <span>
+                    envie de défoulement :
+                        <input
+                        type="text"
+                        id="defoulement"
+                        maxLength={2}
+                        pattern="[+-]?\d+(?:[.,]\d+)?"
+                        onChange={gererDefoulement}
+                        value={defoulement}
+                        />
+                    </span>
+                </div>
+                <div style={{ padding: '5px 15px 5px 15px' }}>
+                    <span>
+                    envie de relaxation :
+                        <input
+                        type="text"
+                        id="relaxation"
+                        maxLength={2}
+                        pattern="[+-]?\d+(?:[.,]\d+)?"
+                        onChange={gererRelaxation}
+                        value={relaxation}
+                        />
+                    </span>
+                </div>
+                <div style={{ padding: '5px 15px 5px 15px' }}>
+                    <span>
+                    Energie physique :
+                        <input
+                        type="text"
+                        id="energiePhysique"
+                        maxLength={2}
+                        pattern="[+-]?\d+(?:[.,]\d+)?"
+                        onChange={gererEnergiePhysique}
+                        value={energiePhysique}
+                        />
+                    </span>
+                </div>
+                <div style={{ padding: '5px 15px 5px 15px' }}>
+                    <span>
+                    Energie Mentale :
+                        <input
+                        type="text"
+                        id="energieMentale"
+                        maxLength={2}
+                        pattern="[+-]?\d+(?:[.,]\d+)?"
+                        onChange={gererEnergieMentale}
+                        value={energieMentale}
                         />
                     </span>
                 </div>
