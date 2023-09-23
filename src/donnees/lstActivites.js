@@ -81,7 +81,7 @@ export const lstActivites = [
     relaxation: 1,
     },
   {
-    titre: "Lecture articles web",
+    titre: "Lecture articles web (liste, puis reddit/quora)",
     duree_min: 20,
     duree_max: 50,
     constructif: 5,
@@ -91,7 +91,7 @@ export const lstActivites = [
     relaxation: 3,
     },
   {
-    titre: "Programmer (moteur destin, match3, destin quelconque...)",
+    titre: "Programmer (visio, destin quelconque...)",
     duree_min: 60,
     duree_max: 180,
     constructif: 8,
@@ -131,7 +131,7 @@ export const lstActivites = [
     relaxation: 6,
     },
   {
-    titre: "Jeu vidéo de flingues",
+    titre: "Jeu vidéo de flingues (nuclear throne...)",
     duree_min: 30,
     duree_max: 180,
     constructif: 0,
@@ -179,5 +179,15 @@ export const lstActivites = [
     energie_mentale: 5,
     defoulement: 6,
     relaxation: 0,
+    },
+  {
+    titre: "Jeu de rôle (préparer séance, dessiner carte...)",
+    duree_min: 50,
+    duree_max: 180,
+    constructif: 7,
+    energie_physique: 5,
+    energie_mentale: 9,
+    defoulement: 1,
+    relaxation: 4,
     },
 ]

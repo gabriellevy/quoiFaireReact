@@ -14,13 +14,31 @@ function Saisie() {
     useEffect(() => {
         // refresh calcul de la proposition
         //1. récupérer valeurs
+        let activitesPossibles = [];
 
         //2. comparer avec donnes de lstActivites
+        lstActivites.forEach((activite) => {
+            if (activite.duree_min <= duree) {
+                var val = 50 - Math.abs(activite.duree_max - duree)
+                val += (constructif - activite.constructif)*3
+                    + (defoulement - activite.defoulement)*3
+                    + (relaxation - activite.relaxation)*3
+                    + (energiePhysique - activite.energie_physique)*3
+                    + (energieMentale - activite.energie_mentale)*3
+                var activiteRes = {};
+                activiteRes.titre = activite.titre
+                activiteRes.valAppropriee = val
+                activitesPossibles.push(activiteRes);
+            }
+        });
+
+        activitesPossibles.sort((a, b) => b.valAppropriee - a.valAppropriee);
+        activitesPossibles = activitesPossibles.slice(0,4)
 
         //3. mettre els 3 premiers dans une chaine de caractère et afficher
-        let lignes = [ 'durée : ' + duree]
-        const listLignes = lignes.map((ligne) =>
-            <li key={ligne.toString()}>      {ligne}
+        const listLignes = activitesPossibles.map((activite) =>
+            <li key={activite.titre}>
+                {activite.titre} : {activite.valAppropriee}
             </li>
         );
         setResultat(listLignes);
