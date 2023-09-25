@@ -19,12 +19,12 @@ function Saisie() {
         //2. comparer avec donnes de lstActivites
         lstActivites.forEach((activite) => {
             if (activite.duree_min <= duree) {
-                var val = 50 - Math.abs(activite.duree_max - duree)
-                val += (constructif - activite.constructif)*3
-                    + (defoulement - activite.defoulement)*3
-                    + (relaxation - activite.relaxation)*3
-                    + (energiePhysique - activite.energie_physique)*3
-                    + (energieMentale - activite.energie_mentale)*3
+                var val = 10 - Math.abs(activite.duree_max/10 - duree/10)
+                val += (10 - Math.abs(constructif - activite.constructif))
+                    + (10 - Math.abs(defoulement - activite.defoulement))
+                    + (10 - Math.abs(relaxation - activite.relaxation))
+                    + (10 - Math.abs(energiePhysique - activite.energie_physique))
+                    + (10 - Math.abs(energieMentale - activite.energie_mentale))
                 var activiteRes = {};
                 activiteRes.titre = activite.titre
                 activiteRes.valAppropriee = val
@@ -42,7 +42,7 @@ function Saisie() {
             </li>
         );
         setResultat(listLignes);
-    }, [duree, constructif ])
+    }, [duree, constructif, defoulement, relaxation, energiePhysique, energieMentale])
     
     function gererDuree(e) {
         setDuree(e.target.value)
