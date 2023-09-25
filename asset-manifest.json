@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/quoiFaireReact/static/css/main.073c9b0a.css",
-    "main.js": "/quoiFaireReact/static/js/main.1a503d90.js",
+    "main.js": "/quoiFaireReact/static/js/main.cf1397a1.js",
     "static/media/logo.svg": "/quoiFaireReact/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/quoiFaireReact/index.html",
     "main.073c9b0a.css.map": "/quoiFaireReact/static/css/main.073c9b0a.css.map",
-    "main.1a503d90.js.map": "/quoiFaireReact/static/js/main.1a503d90.js.map"
+    "main.cf1397a1.js.map": "/quoiFaireReact/static/js/main.cf1397a1.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.1a503d90.js"
+    "static/js/main.cf1397a1.js"
   ]
 }
