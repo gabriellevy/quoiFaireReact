@@ -19,7 +19,7 @@ function Saisie() {
         //2. comparer avec donnes de lstActivites
         lstActivites.forEach((activite) => {
             if (activite.duree_min <= duree) {
-                var val = 10 - Math.abs(activite.duree_max/10 - duree/10)
+                var val = 5 - Math.max(5, Math.abs(activite.duree_max/10 - duree/10))
                 val += (10 - Math.abs(constructif - activite.constructif))
                     + (10 - Math.abs(defoulement - activite.defoulement))
                     + (10 - Math.abs(relaxation - activite.relaxation))
@@ -32,10 +32,10 @@ function Saisie() {
             }
         });
 
+        //3. mettre les premiers dans une chaine de caractère et afficher
         activitesPossibles.sort((a, b) => b.valAppropriee - a.valAppropriee);
-        activitesPossibles = activitesPossibles.slice(0,4)
+        activitesPossibles = activitesPossibles.slice(0,5)
 
-        //3. mettre els 3 premiers dans une chaine de caractère et afficher
         const listLignes = activitesPossibles.map((activite) =>
             <li key={activite.titre}>
                 {activite.titre} : {activite.valAppropriee}
